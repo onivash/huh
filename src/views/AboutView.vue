@@ -1,5 +1,54 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<div>
+<nameSurname
+v-for="(i, index) in arr"
+:key="index"
+:name="i"
+:surname="i"
+/>
+
+Мы молодцы! почти
+
+<div><button @click="addOne">Add 1</button>
+<p>{{ count }}</p>
+</div>
+</div>
 </template>
+
+<script>
+import nameSurname from '@/components/nameSurname.vue'
+
+export default {
+name: 'AboutView',
+components: {
+nameSurname
+},
+data(){
+return {
+arr: [
+{
+name: 'German',
+surname: 'Bezhev'
+},
+{
+name: 'Andrey',
+surname: 'Semenushkin'
+},
+{
+name: 'Leo',
+surname: 'Cherednik'
+}
+],
+count: 0
+}
+},
+methods: {
+addOne(){
+this.count++
+}
+},
+
+
+}
+</script>
+
